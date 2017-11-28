@@ -1,0 +1,568 @@
+@charset "utf-8";
+
+/*公用*/
+
+.comWidth {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.leftArea {
+	float: left;
+}
+
+.rightArea {
+	float: right;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+
+/*topBar*/
+
+.topBar {
+	height: 31px;
+	background-color: #F7F7F7;
+	line-height: 31px;
+	width: 100%;
+}
+
+.collection {
+	background: url(../images/icon/collection.png) left center no-repeat;
+	padding-left: 19px;
+	font-weight: bold;
+}
+
+.topBar a:hover {
+	color: red;
+}
+
+
+/*logo*/
+
+.logoBar {
+	height: 85px;
+	background-color: #1D7AD9;
+}
+
+.logo {
+	padding-left: 41px;
+	padding-top: 13px;
+}
+
+
+/*search*/
+
+.search_box {
+	width: 430px;
+	margin-top: 23px;
+	margin-left: 183px;
+}
+
+
+/*.search_text {
+	width: 350px;
+	height: 14px;
+	line-height: 14px;
+	padding: 11 5 10px;
+	background: white;
+}*/
+
+.search_text {
+	width: 350px;
+	height: 35px;
+	line-height: 35px\9;
+	/*css hack \9所有的ie浏览器*/
+	padding: 0 5px;
+	background: white;
+}
+
+.search_btn {
+	width: 70px;
+	height: 35px;
+	font-size: 14px;
+	font-family: "微软雅黑", "microsoft yahei";
+	background-color: #FF8C00;
+	color: white;
+}
+
+
+/*购物车*/
+
+.shopCar {
+	width: 145px;
+	height: 35px;
+	background-color: #FF8C00;
+	margin-top: 23px;
+	font: 14px/35px "microsoft yahei", "微软雅黑";
+	color: white;
+	margin-right: 59px;
+}
+
+.shopText {
+	/*
+	font-size: 14px;
+	font-family: "微软雅黑", "microsoft yahei";
+	line-height:35px;
+	*/
+	height: 100%;
+	width: 87px;
+	border-right: #E27A00 solid 1px;
+	background: url(../images/icon/shopIcon.png) 10px center no-repeat;
+	text-indent: 40px;
+}
+
+.shopNum {
+	width: 27px;
+	height: 35px;
+	border-left: #FF9C01 solid 1px;
+	background: url(../images/icon/sanjiao.png) 33px center no-repeat;
+	text-align: right;
+	padding-right: 29px;
+}
+
+
+/*导航*/
+
+.navBox {
+	height: 35px;
+	background-color: #1369C0;
+	color: white;
+}
+
+.shopClass {
+	width: 190px;
+	position: relative;
+}
+
+.shopClass h3 {
+	line-height: 35px;
+	text-align: center;
+}
+
+.shopClass i {
+	width: 11px;
+	height: 7px;
+	overflow: hidden;
+	background: url(../images/icon/sanjiao_2.png) left center no-repeat;
+	display: inline-block;
+	margin-left: 11px;
+}
+
+.nav,
+.shopClass h3 {
+	font-family: "微软雅黑", "microsoft yahei";
+}
+
+.nav {
+	line-height: 35px;
+}
+
+.nav li {
+	float: left;
+}
+
+.nav a {
+	height: 35px;
+	display: inline-block;
+	padding: 0 35px;
+	color: white;
+}
+
+.nav .active {
+	background-color: #4593FD;
+}
+
+
+/*商品弹出列表*/
+
+.showClass_show {
+	background-color: #4593FD;
+	position: absolute;
+	left: 0;
+	top: 35;
+	width: 100%;
+}
+
+.shopClass_item {
+	padding: 14px 10px;
+	border-bottom: #3487F2 solid 1px;
+	border-top: #5AA1FE solid 1px;
+}
+
+.shopClass_item dt {
+	height: 22px;
+	background: url(../images/icon/sanjiao_3.png) right center no-repeat;
+}
+
+.shopClass_item .b {
+	/*
+	font-family: "微软雅黑", "microsoft yahei";
+	font-size: 14px;
+	font-weight: bold;
+	*/
+	font: 14px/1 "微软雅黑", "microsoft yahei";
+}
+
+.shopClass_item a {
+	color: white;
+}
+
+.shopClass_item a:hover {
+	text-decoration: underline;
+}
+
+.shopClass_item .aLink {
+	width: 48px;
+	height: 20px;
+	background: url(../images/icon/aLink_bg.png) left center no-repeat;
+	display: inline-block;
+	text-align: center;
+	line-height: 20px;
+	text-decoration: underline;
+}
+
+
+/*shopClass_item active 状态*/
+
+.shopClass_active {
+	background-color: white;
+	border-left: #4593FD solid 1px;
+}
+
+.shopClass_active dt {
+	background: none;
+}
+
+.shopClass_active a {
+	color: black;
+} //样式选择器,以 后出现 的样式为准
+
+/*↓这个显示不出来*/
+
+.shopClass_active .aLink {
+	color: white;
+	text-decoration: none;
+}
+
+
+/*弹出的菜单*/
+
+.shopClass_list {
+	width: 589px; //高度想要自适应,就不要写明高度...
+	/*这个边框显示不出来*/
+	border: #CCC solid 1px;
+	position: absolute;
+	left: 190px;
+	top: 35px;
+}
+
+.shopList_item {
+	padding: 10px 0;
+	border-bottom: #CCC solid 1px;
+}
+
+.shopClass_cont {
+	padding: 0px 20px;
+}
+
+.shopList_item dt {
+	color: #4B87D6;
+	line-height: 24px;
+	font-weight: bold;
+	height: 24px;
+}
+
+.shopList_item dd {
+	padding-left: 68px;
+	line-height: 24px;
+	margin-top: -24px;
+}
+
+.shopList_item dd a {
+	margin-left: 12px;
+}
+
+.shopList_links {
+	padding: 15px 0;
+}
+
+.shopList_links a {
+	color: white;
+	background-color: #2785E6;
+	height: 26px;
+	line-height: 26px;
+	font-size: 12px;
+	display: inline-block;
+	padding: 0 14px 0 8px;
+	margin-right: 10px;
+}
+
+.shopList_links span {
+	width: 11px;
+	height: 7px;
+	background: url(../images/icon/sanjiao_3.png) left center no-repeat;
+	display: inline-block;
+	margin-left: 7px;
+}
+
+
+/*banner*/
+
+.banner {
+	padding-bottom: 15px;
+}
+
+.banner_bar {
+	/*width: 810px;
+	height: 326px;*/
+	float: right;
+	position: relative;
+	overflow: hidden;
+}
+
+.imgBox {
+	/*width: 1620px;
+	height: 326px;*/
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.imgBox li {
+	float: left;
+}
+
+.imgBox img {
+	/*width: 810px;
+	height: 326px;*/
+	display: block;
+}
+
+.imgNum {
+	position: absolute;
+	left: 0;
+	bottom: 15px;
+	width: 100%;
+	text-align: center;
+}
+
+.imgNum a {
+	width: 20px;
+	height: 5px;
+	overflow: hidden;
+	background-color: white;
+	display: inline-block;
+	margin: 0 3px;
+}
+
+.banner_big,
+.banner_big img {
+	width: 810px;
+	height: 326px;
+}
+
+.banner_big .imgBox {
+	width: 1620px;
+	height: 326px;
+}
+
+.banner_sm,
+.banner_sm img {
+	width: 190px;
+	height: 400px;
+}
+
+.banner_sm .imgBox {
+	width: 380px;
+	height: 400px;
+}
+
+
+/*↓这个也显示不出来*/
+
+.imgNum .avtive {
+	background-color: #FF7700;
+}
+
+
+/*商品标题*/
+
+.shopTit {
+	height: 44px;
+	font-family: "微软雅黑", "microsoft yahei";
+	line-height: 44px;
+	padding-bottom: 15px;
+}
+
+.shopTit h3 {
+	font-size: 24px;
+	float: left;
+	font-weight: normal;
+	padding-left: 15px;
+}
+
+.icon {
+	width: 43px;
+	height: 43px;
+	/*浮動以後内嵌元素支持行高，所以display不需要啦*/
+	/*display: inline-block;*/
+	/*没有浮动的话一定要有这句啊不然span宽高为0！*/
+	background: url(../images/icon/shopIcon_2.png) left top no-repeat;
+	float: left;
+}
+
+.more {
+	float: right;
+	font-family: "simsun";
+}
+
+.more:hover {
+	text-decoration: underline;
+}
+
+
+/*商品列表*/
+
+.shopList .leftArea {
+	width: 190px;
+	/*高度不给*/
+}
+
+.shopList .rightArea {
+	width: 808px;
+	/*810px的时候由于清了浮动，会导致整块掉下去，因为横着放不下啊啊啊~*/
+	border: #999999 solid 1px;
+	border-bottom: #FF7201 solid 3px;
+	height: 396px;
+	/*高度+上下宽度才是实际高度*/
+	overflow: hidden;
+	/*多出来就隐藏掉*/
+}
+
+
+/*商品列表-右侧*/
+
+.shopList {
+	margin-bottom: 15px;
+}
+
+.shopList_top,
+.shopList_sm {
+	margin-right: -4px;
+}
+
+.shop_item {
+	width: 202px;
+	border-right: #999999 solid 1px;
+	border-bottom: #999999 solid 1px;
+	height: 279px;
+	text-align: center;
+	font-family: "微软雅黑", "microsoft yahei";
+	float: left;
+}
+
+.shop_img {
+	height: 218px;
+}
+
+.shop_img img {
+	width: 100%;
+	/*和父级一样宽*/
+	height: 218px;
+	display: block;
+}
+
+.shop_item h3 {
+	font-size: 16px;
+}
+
+.shop_item p {
+	font-size: 14px;
+	color: #FF7300;
+	line-height: 21px;
+}
+
+
+/*商品列表-小*/
+
+.shopItem_sm {
+	width: 202px;
+	border-right: #999999 solid 1px;
+	height: 106px;
+	padding-top: 10px;
+	float: left;
+}
+
+.shopItem_smImg {
+	width: 95px;
+	height: 95px;
+	text-align: center;
+	float: left;
+}
+
+.shopItem_smImg img {
+	width: 95px;
+	height: 95px;
+}
+
+.shopItem_text {
+	padding-top: 28px;
+	width: 100px;
+	float: left;
+}
+
+.shopItem_text p {
+	color: #FF7300;
+}
+
+.shopItem_text h3 {
+	font-family: "微软雅黑", "microsoft yahei";
+	font-size: 16px;
+	font-weight: normal;
+	color: #181818;
+	line-height: 30px;
+}
+
+.hr_25{
+	height: 25px;
+}
+/*底部*/
+
+.footer {
+	text-align: center;
+	background-color: #D4D4D4;
+	line-height: 24px;
+	padding: 50px 0;
+
+}
+
+.footer i {
+	/*↓不知道为什么视频里没有这句话竖线会变成斜体*/
+	font-style: normal;
+	margin: 0 5px;
+}
+
+.footer a {
+	color: black;
+}
+
+.footer a:hover {
+	color: #F60;
+}
+
+.web {
+	padding-top: 30px;
+}
+
+.web img {
+	/*感觉这个效果没出来*/
+	margin: 0, 12px;
+}
