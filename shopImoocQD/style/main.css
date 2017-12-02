@@ -104,6 +104,7 @@
 	font: 14px/35px "microsoft yahei", "微软雅黑";
 	color: white;
 	margin-right: 59px;
+	display:inline;/*针对ie6*/
 }
 
 .shopText {
@@ -189,16 +190,21 @@
 	left: 0;
 	top: 35;
 	width: 100%;
+	padding-bottom: 1px;
 }
 
 .shopClass_item {
-	padding: 14px 10px;
+	padding: 13px 10px;
 	border-bottom: #3487F2 solid 1px;
 	border-top: #5AA1FE solid 1px;
+	line-height: 16px;
 }
 
 .shopClass_item dt {
-	height: 22px;
+	height: 21px;
+	/*1em=16px*/
+	line-height:1;/*针对ie6*/
+	overflow: hidden;/*针对ie6*/
 	background: url(../images/icon/sanjiao_3.png) right center no-repeat;
 }
 
