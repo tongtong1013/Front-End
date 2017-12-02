@@ -104,7 +104,8 @@
 	font: 14px/35px "microsoft yahei", "微软雅黑";
 	color: white;
 	margin-right: 59px;
-	display:inline;/*针对ie6*/
+	display: inline;
+	/*针对ie6*/
 }
 
 .shopText {
@@ -203,8 +204,10 @@
 .shopClass_item dt {
 	height: 21px;
 	/*1em=16px*/
-	line-height:1;/*针对ie6*/
-	overflow: hidden;/*针对ie6*/
+	line-height: 1;
+	/*针对ie6*/
+	overflow: hidden;
+	/*针对ie6*/
 	background: url(../images/icon/sanjiao_3.png) right center no-repeat;
 }
 
@@ -537,8 +540,18 @@
 	line-height: 30px;
 }
 
-.hr_25{
+.hr_25 {
 	height: 25px;
+}
+
+.hr_7{
+	height: 7px;
+	overflow: hidden;
+}
+
+.hr_15{
+	height: 15px;
+	overflow: hidden;
 }
 /*底部*/
 
@@ -547,7 +560,6 @@
 	background-color: #D4D4D4;
 	line-height: 24px;
 	padding: 50px 0;
-
 }
 
 .footer i {
@@ -571,4 +583,117 @@
 .web img {
 	/*感觉这个效果没出来*/
 	margin: 0, 12px;
+}
+
+
+/*产品分类*/
+
+.products .leftArea {
+	width: 185px;
+}
+
+.products .rightArea {
+	width: 810px;
+}
+
+.products .banner_bar{
+	float:none;
+}
+
+.products .item{
+	width:25%;
+	*width:24.9%;
+	margin-bottom: 10px;
+}
+
+/*产品分类导航*/
+
+.leftNav {
+	background-color: #F3F3F3;
+	border: #D7D7D7 solid 1px;
+}
+
+.nav_title {
+	height: 34px;
+	line-height: 34px;
+	font-size: 14px;
+	border-bottom: #D7D7D7 solid 1px;
+	text-align: center;
+}
+
+.nav_cont {
+	padding: 0 18px 4px;
+	/*上 左右 下*/
+	border-bottom: #D7D7D7 1px dotted;
+	margin-bottom: -1px;
+}
+
+.nav_cont h3 {
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	/*没这句文字就顶天了*/
+}
+
+.navCont_list {
+	line-height: 25px;
+}
+
+.navCont_list li {
+	float: left;
+	width: 50%;
+}
+
+/*标题*/
+.products_title{
+	height:34px;
+	border-bottom:#CCCCCC solid 2px;
+}
+
+.products_title h3{
+	width:180px;
+	border-bottom: #096DBA solid 2px;
+	height: 34px;
+	line-height: 34px;
+	text-indent:9px;/*首行缩进*/
+	/*子元素不能超过父级*/
+	margin-bottom: -2px;
+	position: relative;
+}
+
+.item{
+	float:left;
+	height:265px;
+}
+.item_cont{
+	padding:0 15px;
+}
+.img_item{
+	height: 170px;
+	text-align: center;
+}
+.img_item img{
+	height: 170px;
+}
+.item p{
+	line-height: 20px;
+}
+
+.item a:hover{
+	text-decoration:underline;
+}
+
+.money{
+	color:#D4105A;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+.stars{
+	width:13px;
+	height: 12px;
+	overflow:hidden;
+	background:url(../images/icon/star.png) left top no-repeat;
+	display: inline-block;/*内嵌元素*/
+	margin-right: 1px;
 }
