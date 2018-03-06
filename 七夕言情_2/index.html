@@ -12,9 +12,9 @@
 		<script src="js/jquery.transit.js"></script>
 
 	</head>
-	<style type="text/css">
+	<!--<style type="text/css">
 
-	</style>
+	</style>-->
 
 	<body>
 		<div id="content">
@@ -68,10 +68,11 @@
 					</ul>
 					<div class="logo"></div>
 				</li>
+				<div id="snowflake"></div>
 			</ul>
 			<div id='boy' class="charector"></div>
 			<div class="button">
-				<button>开始</button>
+				<button>开始飘花</button>
 				<!--<button>关门灭灯</button>-->
 			</div>
 		</div>
@@ -101,7 +102,7 @@
 						return this.elem.width();
 					}
 				}
-				
+
 				girl.setPosition();
 
 				var logo = {
@@ -123,46 +124,113 @@
 					}
 				}
 
-//				function startRun() {
-//					boy.walkTo(2000, 0.5).then(function() {
-//						boy.stopWalk();
-//					}).then(function() {
-//						return openDoor();
-//					}).then(function() {
-//						lamp.bright();
-//					}).then(function() {
-//						return boy.toShop(2000);
-//					}).then(function() {
-//						return boy.talkFlower();
-//					}).then(function() {
-//						bird.fly();
-//					}).then(function() {
-//						return boy.outShop(2000);
-//					}).then(function() {
-//						return shutDoor();
-//					}).then(function() {
-//						lamp.dark();
-//					});
-//				}
-//
-//				$('button:first').click(startRun);
+				//				function startRun() {
+				//					boy.walkTo(2000, 0.5).then(function() {
+				//						boy.stopWalk();
+				//					}).then(function() {
+				//						return openDoor();
+				//					}).then(function() {
+				//						lamp.bright();
+				//					}).then(function() {
+				//						return boy.toShop(2000);
+				//					}).then(function() {
+				//						return boy.talkFlower();
+				//					}).then(function() {
+				//						bird.fly();
+				//					}).then(function() {
+				//						return boy.outShop(2000);
+				//					}).then(function() {
+				//						return shutDoor();
+				//					}).then(function() {
+				//						lamp.dark();
+				//					});
+				//				}
+				//
+				//				$('button:first').click(startRun);
 
+				//				$("button:first").click(function() {
+				//					boy.walkTo(2000, 0.15).then(function() {
+				//						return boy.walkTo(1500, 0.25, girl.getPosition().top / $('#content').height());
+				//					}).then(function() {
+				//						var proportionX = (girl.getPosition().left - boy.getWidth() + girl.getWidth() / 5) / container.width();
+				//						return boy.walkTo(1500, proportionX);
+				//					}).then(function() {
+				//						boy.resetOriginal();
+				//					}).then(function() {
+				//						setTimeout(function() {
+				//							girl.rotate();
+				//							boy.rotate(function() {
+				//								logo.run();
+				//							});
+				//						}, 1000);
+				//					})
+				//				})
+
+				var snowflakeURL = ['img/snowflake/snowflake1.png',
+					'img/snowflake/snowflake2.png',
+					'img/snowflake/snowflake3.png',
+					'img/snowflake/snowflake4.png',
+					'img/snowflake/snowflake5.png',
+					'img/snowflake/snowflake6.png'
+				];
+
+				function snowflake() {
+					var $flakeContainer = $('#snowflake');
+
+					function getImagesName() {
+						return snowflakeURL[Math.floor(Math.random() * 6)];
+					}
+
+					function createSnowBox() {
+						var url = getImagesName();
+						return $('<div class="snowbox" />').css({
+							'width': 41,
+							'height': 41,
+							'position': 'absolute',
+							'backgroundSize': 'cover',
+							'zIndex': 100000,
+							'top': '-41px',
+							'backgroundImage': 'url(' + url + ')'
+						}).addClass('snowRoll');
+					}
+
+					setInterval(function() {
+						//						var startPositionLeft = Math.random() * visualWidth - 100,
+						//							startOpacity = 1,
+						//							endPositionTop = visualHeight-40,
+						//							endPositionLeft = startPositionLeft - 100 + Math.random() * 500,
+						//							duration = visualHeight * 10 + Math.random() * 5000;
+
+						var startPositionLeft = 0,
+							startOpacity = 1,
+							endPositionTop = visualHeight - 40,
+							endPositionLeft = startPositionLeft,
+							duration = 10000;
+
+						var randomStart = Math.random();
+						randomStart = randomStart < 0.5 ? startOpacity : randomStart;
+
+						var $flake = createSnowBox();
+
+						$flake.css({
+							left: startPositionLeft,
+							opacity: randomStart
+						})
+
+						$flakeContainer.append($flake);
+
+						$flake.transition({
+							top: endPositionTop,
+							left: endPositionLeft,
+							opacity: 0.7
+						}, duration, 'ease-out', function() {
+							$(this).remove();
+						});
+
+					}, 200);
+				}
 				$("button:first").click(function() {
-					boy.walkTo(2000, 0.15).then(function() {
-						return boy.walkTo(1500, 0.25, girl.getPosition().top / $('#content').height())
-					}).then(function() {
-						var proportionX = (girl.getPosition().left - boy.getWidth() + girl.getWidth() / 5) / container.width();
-						return boy.walkTo(1500, proportionX);
-					}).then(function() {
-						boy.resetOriginal();
-					}).then(function() {
-						setTimeout(function() {
-							girl.rotate();
-							boy.rotate(function() {
-								logo.run();
-							})
-						}, 1000);
-					})
+					snowflake();
 				})
 			})
 		</script>

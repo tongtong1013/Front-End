@@ -134,6 +134,7 @@ function BoyWalk() {
 			restoreWalk();
 			$boy.addClass('boy-rotate');
 			if(callback) {
+//				boy.rotate方法传递一个回调，内部通过jQuery.on方法监听一个动画结束的事件，转身动画结束后会调用这个回调函数
 				$boy.on(animationEnd, function() {
 					callback();
 					$(this).off();
@@ -141,8 +142,8 @@ function BoyWalk() {
 			}
 		},
 		talkFlower: function() {
-//		return talkFlower();
-		$boy.addClass('slowFlowerWalk');
+//			return talkFlower();
+			$boy.addClass('slowFlowerWalk');
 		}
 	}
 }

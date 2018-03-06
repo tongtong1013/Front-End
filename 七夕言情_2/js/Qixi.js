@@ -1,5 +1,6 @@
 var animationEnd = (function() {
 	var explorer = navigator.userAgent;
+	//~arr.indexOf('zank')等价于arr.indexOf('zank')>-1
 	if(~explorer.indexOf('WebKit')) {
 		return 'webkitAnimationEnd';
 	}
