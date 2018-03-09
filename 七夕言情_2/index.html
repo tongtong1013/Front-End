@@ -72,14 +72,14 @@
 			</ul>
 			<div id='boy' class="charector"></div>
 			<div class="button">
-				<button>开始飘花</button>
+				<button>播放音乐</button>
 				<!--<button>关门灭灯</button>-->
 			</div>
 		</div>
 		<script type="text/javascript">
 			$(function() {
 				var boy = BoyWalk();
-				boy.talkFlower();
+				//				boy.talkFlower();
 
 				var girl = {
 					elem: $('.girl'),
@@ -123,48 +123,103 @@
 						}, 15000, 'linear');
 					}
 				}
+				$("button:first").click(function() {
+					$("#sun").addClass('rotation');
+					$(".cloud:first").addClass('cloud1Anim');
+					$(".cloud:last").addClass('cloud2Anim');
+					var audio1 = Html5Audio(audioConfig.playURL);
+					audio1.end(function() {
+						Html5Audio(audioConfig.cycleURL, true);
+					});
+					boy.walkTo(2000, 0.2).then(function() {
+						scrollTo(5000, 1);
+					}).then(function() {
+						return boy.walkTo(5000, 0.5);
+					}).then(function() {
+						boy.stopWalk();
+					}).then(function() {
+						return openDoor();
+					}).then(function() {
+						lamp.bright();
+					}).then(function() {
+						return boy.toShop(2000);
+					}).then(function() {
+						return boy.talkFlower();
+					}).then(function() {
+						bird.fly();
+					}).then(function() {
+						return boy.outShop(2000);
+					}).then(function() {
+						return shutDoor();
+					}).then(function() {
+						lamp.dark();
+					}).then(function() {
+						scrollTo(5000, 2);
+					}).then(function() {
+						return boy.walkTo(5000, 0.15);
+					}).then(function() {
+						return boy.walkTo(1500, 0.25, girl.getPosition().top / $('#content').height());
+					}).then(function() {
+						//						var proportionX = (girl.getPosition().left - boy.getWidth() + girl.getWidth() / 5) / container.width();
+						var proportionX = (girl.getPosition().left - boy.getWidth()) / container.width();
+						return boy.walkTo(1500, proportionX);
+					}).then(function() {
+						boy.resetOriginal();
+					}).then(function() {
+						setTimeout(function() {
+							girl.rotate();
+							boy.rotate(function() {
+								logo.run();
+							});
+						}, 1000);
+					}).then(function() {
+						snowflake();
+					})
+				})
 
-				//				function startRun() {
-				//					boy.walkTo(2000, 0.5).then(function() {
-				//						boy.stopWalk();
-				//					}).then(function() {
-				//						return openDoor();
-				//					}).then(function() {
-				//						lamp.bright();
-				//					}).then(function() {
-				//						return boy.toShop(2000);
-				//					}).then(function() {
-				//						return boy.talkFlower();
-				//					}).then(function() {
-				//						bird.fly();
-				//					}).then(function() {
-				//						return boy.outShop(2000);
-				//					}).then(function() {
-				//						return shutDoor();
-				//					}).then(function() {
-				//						lamp.dark();
-				//					});
-				//				}
-				//
+				function startRun() {
+					boy.walkTo(2000, 0.5).then(function() {
+						boy.stopWalk();
+					}).then(function() {
+						return openDoor();
+					}).then(function() {
+						lamp.bright();
+					}).then(function() {
+						return boy.toShop(2000);
+					}).then(function() {
+						return boy.talkFlower();
+					}).then(function() {
+						bird.fly();
+					}).then(function() {
+						return boy.outShop(2000);
+					}).then(function() {
+						return shutDoor();
+					}).then(function() {
+						lamp.dark();
+					});
+				}
+
 				//				$('button:first').click(startRun);
 
-				//				$("button:first").click(function() {
-				//					boy.walkTo(2000, 0.15).then(function() {
-				//						return boy.walkTo(1500, 0.25, girl.getPosition().top / $('#content').height());
-				//					}).then(function() {
-				//						var proportionX = (girl.getPosition().left - boy.getWidth() + girl.getWidth() / 5) / container.width();
-				//						return boy.walkTo(1500, proportionX);
-				//					}).then(function() {
-				//						boy.resetOriginal();
-				//					}).then(function() {
-				//						setTimeout(function() {
-				//							girl.rotate();
-				//							boy.rotate(function() {
-				//								logo.run();
-				//							});
-				//						}, 1000);
-				//					})
-				//				})
+				//								$("button:first").click(function() {
+				//									boy.walkTo(2000, 0.15).then(function() {
+				//										return boy.walkTo(1500, 0.25, girl.getPosition().top / $('#content').height());
+				//									}).then(function() {
+				//										var proportionX = (girl.getPosition().left - boy.getWidth() + girl.getWidth() / 5) / container.width();
+				//										return boy.walkTo(1500, proportionX);
+				//									}).then(function() {
+				//										boy.resetOriginal();
+				//									}).then(function() {
+				//										setTimeout(function() {
+				//											girl.rotate();
+				//											boy.rotate(function() {
+				//												logo.run();
+				//											});
+				//										}, 1000);
+				//									}).then(function() {
+				//										snowflake();
+				//									})
+				//								})
 
 				var snowflakeURL = ['img/snowflake/snowflake1.png',
 					'img/snowflake/snowflake2.png',
@@ -195,16 +250,10 @@
 					}
 
 					setInterval(function() {
-						//						var startPositionLeft = Math.random() * visualWidth - 100,
-						//							startOpacity = 1,
-						//							endPositionTop = visualHeight-40,
-						//							endPositionLeft = startPositionLeft - 100 + Math.random() * 500,
-						//							duration = visualHeight * 10 + Math.random() * 5000;
-
-						var startPositionLeft = 0,
+						var startPositionLeft = Math.random() * visualWidth - 100 + 2 * visualWidth,
 							startOpacity = 1,
-							endPositionTop = visualHeight - 40,
-							endPositionLeft = startPositionLeft,
+							endPositionTop = visualHeight,
+							endPositionLeft = startPositionLeft - 100 + Math.random() * 500,
 							duration = 10000;
 
 						var randomStart = Math.random();
@@ -229,9 +278,35 @@
 
 					}, 200);
 				}
-				$("button:first").click(function() {
-					snowflake();
-				})
+
+				var audioConfig = {
+					enable: true,
+					playURL: '/七夕言情_2/music/happy.wav',
+					cycleURL: '/七夕言情_2/music/circulation.wav'
+				}
+
+				function Html5Audio(url, isloop) {
+					var audio = new Audio(url);
+					audio.autoplay = true;
+					audio.loop = isloop || false;
+					return {
+						//						带方法名的属性
+						end: function(callback) {
+							audio.addEventListener('ended', function() {
+								callback();
+							}, false);
+						}
+					}
+				}
+				//								$("button:first").click(function() {
+				//									snowflake();
+				//								})
+				//				$("button").click(function(){
+				//					var audio1=Html5Audio(audioConfig.playURL);
+				//					audio1.end(function(){
+				//						Html5Audio(audioConfig.cycleURL,true);
+				//					});
+				//				})
 			})
 		</script>
 		<script type="text/javascript" src="js/Swipe.js"></script>

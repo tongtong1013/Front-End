@@ -44,7 +44,7 @@ var bridgeY = function() {
 	return data.top;
 }();
 
-swipe.scrollTo(visualWidth * 2, 0);
+swipe.scrollTo(visualWidth * 0, 0);
 
 function doorAction(left, right, time) {
 	var $door = $('.door');
