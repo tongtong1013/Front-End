@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>圣诞主题</title>
+		<link rel="stylesheet" href="css/common.css">
+		<script src="js/jQueryJavaScriptLibrary v2.1.4.js"></script>
+		<script src="js/pageA.js"></script>
+		<script src="js/pageB.js"></script>
+		<script src="js/pageC.js"></script>
+		<script src="js/christmas.js"></script>
+		<script src="js/observer.js"></script>
+	</head>
+	<body>
+		<section class="container">
+			<section class="page-a bg-adaptive">
+				
+			</section>
+			<section class="page-b bg-adaptive">
+				
+			</section>
+			<section class="page-c bg-adaptive">
+				
+			</section>
+		</section>
+
+		<button>点击播放音乐</button>
+		<button>点击播放循环音乐</button>
+		
+	</body>
+	<script>
+		var docE1 = document.documentElement;
+		var resizeEvt = 'orientationchange' in window?'orientationchange':'resize';
+		var recalc=function(){
+			var container = document.querySelector(".container");
+			var proportion = 900/1440;
+			container.style.height = container.clientWidth*proportion+'px';
+		};
+		window.addEventListener(resizeEvt,recalc,false);
+		document.addEventListener('DOMContentLoaded',recalc,false);
+	</script>
+</html>

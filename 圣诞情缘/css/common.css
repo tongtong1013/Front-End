@@ -1,0 +1,97 @@
+*{
+	margin:0;
+	padding: 0;
+}
+
+.container{
+	width:100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.bg-adaptive{
+	background-size: 100% 100%;
+}
+
+.container .page-a{
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/a/page-a-bg.png);
+	position: absolute;
+	z-index: 5;
+}
+
+.container .page-b{
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/b/page-b-bg.png);
+	position: absolute;
+	z-index: 4;
+}
+
+.page-c{
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/c/page-c-bg.png);
+	position: absolute;
+	z-index: 3;
+}
+
+.effect-out{
+	-webkit-animation: effectOut 8s ease-in-out forwards;
+	-webkit-transform-origin: 71% 72%;
+	-moz-animation: effectOut 8s ease-in-out forwards;
+	-moz-transform-origin: 71% 72%;
+}
+@-webkit-keyframes effectOut{
+	from{
+		opacity: 1;
+	}
+	to{
+		transform: scale(20);
+		opacity: 0;
+	}
+}
+
+@-moz-keyframes effectOut{
+	from{
+		opacity: 1;
+	}
+	to{
+		transform: scale(20);
+		opacity: 0;
+	}
+}
+.effect-in{
+	z-index: 15;
+	display: block;
+	opacity: 0;
+	-webkit-transform: scale(8);
+	-webkit-animation: effectIn 5s ease-in-out forwards;
+	-webkit-transform-origin: 58.5% 73.5%;
+	-moz-transform: scale(8);
+	-moz-animation: effectIn 5s ease-in-out forwards;
+	-moz-transform-origin: 58.5% 73.5%;
+}
+@-webkit-keyframes effectIn{
+	from{
+		transform: scale(20);
+		opacity: 0;
+	}
+	to{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes effectIn{
+	from{
+		transform: scale(20);
+		opacity: 0;
+	}
+	to{
+		transform: scale(1);
+		opacity: 1;
+	}
+}

@@ -1,0 +1,45 @@
+技术点分解：
+	如何做rem布局
+	帧动画的原理
+	如何营造3d视角
+	canvas绘图
+	svg绘图
+	设计模式与异步代码梳理
+
+		选择页面：
+		<select id="choose">
+			<option value="page-a" selected="">1</option>
+			<option value="page-b">2</option>
+			<option value="page-c">3</option>
+		</select>
+		
+//		document.querySelector("#choose").addEventListener("change",function(e){
+//			var pageName = e.target.value;
+//			switch(pageName){
+//				case "page-b":
+//					$(".page-a").addClass("effect-out");
+//					sbreak;
+//				case "page-c":
+//					$(".page-c").addClass("effect-in");
+//					break;
+//			}
+//		},false);
+
+
+	/*
+	$("#choose").on("change",function(e){
+		var pageName = e.target.value;
+		switch(pageName){
+			case "page-b":
+				changePage($pageA,"effect-out",function(){
+					new pageB();
+				});
+				break;
+			case "page-c":
+				changePage($pageC,"effect-in",function(){
+					new pageC();
+				});
+				break;
+		}
+	})
+	*/
