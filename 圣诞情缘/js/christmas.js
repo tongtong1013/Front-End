@@ -35,9 +35,10 @@ var Christmas = function(){
 			observer.publish("pageC");
 		});
 	});
-	new pageA(function(){
-		observer.publish("completeA");
-	});
+//	new pageA(function(){
+//		observer.publish("completeA");
+//	});
+	new pageA($pageA);
 }
 function HTML5Audio(url,loop){
 	var audio = new Audio(url);
@@ -53,15 +54,16 @@ function HTML5Audio(url,loop){
 	}
 }
 $(function(){
-//	$("button").click(function(){
-//      //圣诞主题效果，开始
-//      Christmas()
-//  })
-	$("button:first").click(function(){
-		var audio1 = HTML5Audio('./music/scene.mp3');
-		audio1.end(function(){
-			//alert("音乐结束");
-			HTML5Audio('./music/circulation.mp3', true);
-		})
-	})
+	$("button").click(function(){
+        //圣诞主题效果，开始
+        Christmas()
+    })
+//	$("button").on("click",function(){Christmas();})
+//	$("button:first").click(function(){
+//		var audio1 = HTML5Audio('./music/scene.mp3');
+//		audio1.end(function(){
+//			//alert("音乐结束");
+//			HTML5Audio('./music/circulation.mp3', true);
+//		})
+//	})
 })

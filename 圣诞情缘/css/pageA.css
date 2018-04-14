@@ -1,0 +1,185 @@
+.container .page-a {
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/a/page-a-bg.png);
+	position: absolute;
+	z-index: 5;
+}
+
+.chs-boy{
+	width: 5rem;
+	height: 1.5rem;
+	position: absolute;
+	z-index: 3;
+	top: .1rem;
+	right: -3rem;
+	transform: scale(0.1);
+	background: url(../img/a/boy-sleigh-car.png) -300% -100%;
+	background-size: 400% 100%;
+}
+
+.chs-boy-deer{
+	-webkit-animation: chsBoyDeer 0.75s steps(3,end) infinite;
+	-moz-animation:chsBoyDeer 0.75s steps(3,end) infinite;
+}
+
+@-webkit-keyframes chsBoyDeer{
+	0%{
+		background-position: -0% 100%;
+	}
+	100%{
+		background-position: -300% 100%;
+	}
+}
+@-moz-keyframes chsBoyDeer{
+	0%{
+		background-position: -0% 100%;
+	}
+	100%{
+		background-position: -300% 100%;
+	}
+}
+.boy-stop-animate{
+	-webkit-animation-play-state: paused;
+	-moz-animation-play-state: paused;
+}
+.tree {
+	width: 2.71rem;
+	height: 4.24rem;
+	z-index: 15;
+	position: absolute;
+	bottom: 0;
+	left: 1rem;
+	background-image: url(../img/a/trees.png);
+	background-size: 200% 100%;
+	-webkit-animation-name: treeAnim;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: steps(2);
+	-webkit-animation-duration: 1s;
+	-moz-animation-name: treeAnim;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: steps(2);/*每一个百分比之间，分成两个补间动画*/
+	-moz-animation-duration: 1s;/*从0%到100%经历1s*/
+}
+
+/*position-x=（容器宽度-图片宽度）*百分比*/
+
+
+/*position-y=（容器高度-图片高度）*百分比*/
+
+
+/*这样就会理解上图出现的问题，如果想更好的理解一下可以理解图片的20%的点和容器在20%所在的点重合~*/
+
+@-webkit-keyframes treeAnim {
+	0% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: -200% 100%;
+	}
+}
+
+@-moz-keyframes treeAnim {
+	0% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: -200% 100%;
+	}
+}
+
+.window{
+	width:2.6rem;
+	height: 1.5rem;
+	position:absolute;
+	left: 9.7rem;
+	top: 6.2rem;
+	cursor: pointer;
+	-webkit-perspective:500px;
+	-moz-perspective: 500px;
+}
+
+.window-content{
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	width: 91%;
+	margin: 0 auto;
+	height: 100%;
+	overflow: hidden;
+}
+
+.window:before{
+	content: "";
+	background: url(../img/a/window-bottom.png);
+	width: 100%;
+	height: 0.17rem;
+	display: block;
+	position: absolute;
+	bottom: 0.05rem;
+	background-size: 100% 100%;
+	z-index: 100;
+}
+
+.window:after{
+	content: "";
+	background: url(../img/a/window-bottom-shadow.png);
+	width: 100%;
+	height: 0.09rem;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	background-size: 100% 100%;
+	z-index: 100;
+}
+
+.wood{
+	display: block;
+	overflow: hidden;
+}
+
+.window-left{
+	float: left;
+	background: url(../img/a/window-left.png);
+	-webkit-border-top-left-radius: 0.1rem;
+	-moz-border-top-left-radius:0.1rem;
+}
+
+.window-right{
+	float: right;
+	background: url(../img/a/window-right.png);
+	-webkit-border-top-right-radius: 0.1rem;
+	-moz-border-top-right-radius:0.1rem;
+}
+
+.window-left,
+.window-right{
+	width: 1.17rem;
+	height: 1.3rem;
+	z-index: 110;
+	box-shadow: 0 0 0.15rem #FCF0BC;
+	background-size: 100% 100%;
+}
+
+.window-animation{
+	-webkit-transition: 2s ease-in-out;
+	-moz-transition: 2s ease-in-out;
+}
+
+.window-transition{
+	-webkit-transition: 2s ease-in-out;
+	-moz-transition: 2s ease-in-out;
+}
+
+.window-left.hover{
+	transform-origin:0% 0%;
+	transform: scale(0.95) rotateY(60deg);
+	top: 0.1rem;
+	left: -0.25rem;
+}
+
+.window-right.hover{
+	transform-origin:100% 0%;
+	transform: scale(0.95) rotateY(-60deg);
+	top: 0.1rem;
+	left: -0.25rem;	
+}

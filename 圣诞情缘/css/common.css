@@ -14,7 +14,7 @@
 	background-size: 100% 100%;
 }
 
-.container .page-a{
+/*.container .page-a{
 	width: 100%;
 	height: 100%;
 	background-image: url(../img/a/page-a-bg.png);
@@ -36,7 +36,7 @@
 	background-image: url(../img/c/page-c-bg.png);
 	position: absolute;
 	z-index: 3;
-}
+}*/
 
 .effect-out{
 	-webkit-animation: effectOut 8s ease-in-out forwards;
