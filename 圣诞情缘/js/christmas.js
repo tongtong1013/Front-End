@@ -38,7 +38,8 @@ var Christmas = function(){
 //	new pageA(function(){
 //		observer.publish("completeA");
 //	});
-	new pageA($pageA);
+	//new pageA($pageA);
+	new pageB($pageB);
 }
 function HTML5Audio(url,loop){
 	var audio = new Audio(url);
