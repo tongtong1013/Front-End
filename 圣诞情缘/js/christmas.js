@@ -39,7 +39,8 @@ var Christmas = function(){
 //		observer.publish("completeA");
 //	});
 	//new pageA($pageA);
-	new pageB($pageB);
+	//new pageB($pageB);
+	new pageC($pageC);
 }
 function HTML5Audio(url,loop){
 	var audio = new Audio(url);

@@ -97,6 +97,11 @@ function pageB(element,pageComplete){
 			"img/carousel/3.png",
 			"img/carousel/2.png",
 			"img/carousel/1.png"
+		],
+		videoUrls:[
+			"img/carousel/3.mp4",
+			"img/carousel/2.mp4",
+			"img/carousel/1.mp4"
 		]
 	});
 	boyAction.walk().then(function(){
@@ -130,6 +135,8 @@ function pageB(element,pageComplete){
 	})
 	var i = 0;
 	$("button").on("click",function(){
-		carousel.run(i++);
+		carousel.run(i++,function(){
+			carousel.playVideo();
+		});
 	})
 }

@@ -85,9 +85,30 @@ function Carousel(carousel,options){
 			"-moz-transform":"rotateY(-"+angle+"deg)",
 			"-moz-transition":"1s"
 		}).one("transitionend webkitTransitionend",function(){
-			$spinner.css("transition","");
-			$spinner.css("-moz-transition","");
-			alert("旋转完成");
+//			$spinner.css("transition","");
+//			$spinner.css("-moz-transition","");
+//			alert("旋转完成");
+			callback();
 		});
+	}
+	this.playVideo = function(){
+		var index = currIndex;
+		var element = element || $contentElements.eq(index);
+		var $video = $('<video preload="auto"  class="bounceIn" style="width:50%;height:50%;position:absolute;left:30%;top:35%;"></video>');
+		$video.css({
+			"position":"absolute",
+			"z-index":999
+		});
+		$video.attr('src',options.videoUrls[index]);
+		$video.on("loadeddata",function(){
+            $video[0].play()
+       });
+		$video.on("ended",function(){
+			$video[0].pause();
+			$video.addClass("bounceOut").one("animationend webkitAnimationEnd",function(){
+				$video.remove();
+			});
+		});
+		$carousel.after($video);
 	}
 }
