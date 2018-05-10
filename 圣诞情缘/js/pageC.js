@@ -31,3 +31,4 @@ pageC.prototype.closeWindow = function(){
 	bind(this.$leftWin);
 	bind(this.$rightWin);
 }
+

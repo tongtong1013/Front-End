@@ -112,3 +112,4 @@ function Carousel(carousel,options){
 		$carousel.after($video);
 	}
 }
+
