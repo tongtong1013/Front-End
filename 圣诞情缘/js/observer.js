@@ -69,3 +69,4 @@ var Observer = (function(slice){
 		return this;
 	}
 })([].slice);
+
