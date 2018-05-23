@@ -6,6 +6,22 @@
 	z-index: 40;
 }
 
+.cat{
+	width: 1.8rem;
+	height: 1.3rem;
+	position: absolute;
+	z-index: 6;
+	background-image: url(../img/b/cat.png);
+	background-size: 100% 100%;
+	background-position: 0% 100%;
+	left: 3.5rem;
+	top: 5rem;
+}
+
+.catWithBook{
+	background-image: url(../img/b/cat-book.png);
+}
+
 .walk-stop{
 	-webkit-animation-play-state:paused;
 	-moz-animation-play-state:paused;
@@ -13,7 +29,7 @@
 
 .walk-run{
 	-webkit-animation-play-state: running;
-	-moz-animation-play-state:running;
+	-moz-animation-play-state: running;
 }
 
 /*圣诞小男孩*/
@@ -126,7 +142,7 @@
 
 /*男孩头部*/
 
-.chrismas-boy-head{
+.christmas-boy-head{
 	left: 7.85rem;
 	top: 4rem;
 	width: 3.5rem;
@@ -299,6 +315,17 @@
 	}
 }
 
+.hiddenSpinner{
+	visibility:hidden;
+}
+
+.bounceIn {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+}
+
 @-webkit-keyframes bounceIn{
 	from,20%,40%,60%,80%,to{
 		-webkit-animation-timing-function:
@@ -375,11 +402,11 @@
   }
 }
 
-.bounceIn {
+.bounceOut {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-name: bounceIn;
-  animation-name: bounceIn;
+  -webkit-animation-name: bounceOut;
+  animation-name: bounceOut;
 }
 
 @-webkit-keyframes bounceOut {
@@ -420,10 +447,4 @@
   }
 }
 
-.bounceOut {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-name: bounceOut;
-  animation-name: bounceOut;
-}
 

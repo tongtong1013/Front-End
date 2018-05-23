@@ -25,7 +25,7 @@ pageC.prototype.closeWindow = function(){
 	}
 	var complete = function(){
 		if(count == 2){
-			alert("关窗成功！");
+//			alert("关窗成功！");
 		}
 	}
 	bind(this.$leftWin);
