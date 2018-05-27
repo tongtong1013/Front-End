@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<title>圣诞主题</title>
-		<link rel="stylesheet" href="css/common.css">
-<!--		<link rel="stylesheet" href="css/pageA.css">-->
+		<!--
+        	样式选择，靠后的样式更有效。
+        	由于effect-in中的z-index要覆盖page-c中的z-index样式，
+        	所以common.css（有effect-in）要放在pageC.css（有page-c）的后面。
+        -->
+		<link rel="stylesheet" href="css/pageA.css">
 		<link rel="stylesheet" href="css/pageB.css">
 		<link rel="stylesheet" href="css/pageC.css">
-
+		<link rel="stylesheet" href="css/common.css">
 		<script src="js/jQueryJavaScriptLibrary v2.1.4.js"></script>
 		<script src="js/jquery.transit.js"></script>
 		<script src="js/pageA.js"></script>
@@ -22,7 +25,7 @@
 
 	<body>
 		<section class="container">
-			<!--<section class="page-a bg-adaptive">
+			<section class="page-a bg-adaptive">
 				<div class="chs-boy chs-boy-deer"></div>
 				<div class="window wood">
 					<div class="window-bg"></div>
@@ -34,7 +37,7 @@
 				<figure class="moon"></figure>
 				<figure class="tree"></figure>
 				<figure class="cloudy"></figure>
-			</section>-->
+			</section>
 			<section class="page-b bg-adaptive">
 				<figure class="cat"></figure>
 				<figure class="girl"></figure>
@@ -56,7 +59,7 @@
 				<canvas id = "snowflake"></canvas>
 			</section>
 		</section>
-		<button>Action</button>
+		<!--<button>Action</button>-->
 	</body>
 	<script>
 		(function(doc, win) {

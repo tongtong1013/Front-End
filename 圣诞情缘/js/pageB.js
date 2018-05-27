@@ -1,13 +1,15 @@
-//function pageB(callback){
-//	//alert("页面B");
-//	setTimeout(function() {
-//
-//		callback()
-//
-//	}, 1000)
-//}
+function pageB(callback){
+//	alert("页面B");
+	var $pageB = $(".page-b");
+	new pageBStart($pageB);
+	setTimeout(function() {
 
-function pageB(element, pageComplete) {
+		callback();
+
+	}, 63000);
+}
+
+function pageBStart(element, pageComplete) {
 	var $boy = element.find(".christmas-boy");
 	var $girl = element.find(".girl");
 	var $cat = element.find(".cat");
@@ -167,11 +169,11 @@ function pageB(element, pageComplete) {
 		boyAction.hug();
 	});
 	
-	$("button").on("click", function() { //要注意避免多次实例化，因为会对click事件进行多次绑定。
-		carousel.run(0).then(function() {
-			return carousel.run(1);
-		}).then(function() {
-			return carousel.run(2);
-		});
-	});
+//	$("button").on("click", function() { //要注意避免多次实例化，因为会对click事件进行多次绑定。
+//		carousel.run(0).then(function() {
+//			return carousel.run(1);
+//		}).then(function() {
+//			return carousel.run(2);
+//		});
+//	});
 }

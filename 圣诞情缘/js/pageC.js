@@ -1,4 +1,9 @@
 function pageC(callback){
+//	alert("页面C");
+	new pageCStart();
+}
+
+function pageCStart(callback){
 	//alert("页面C");
 	this.$window = $(".page-c .window");
 	this.$leftWin = this.$window.find(".window-left");
@@ -15,7 +20,7 @@ function pageC(callback){
 	this.closeWindow();
 }
 
-pageC.prototype.closeWindow = function(){
+pageCStart.prototype.closeWindow = function(){
 	var count = 0;
 	var bind = function(element){
 		element.addClass("close").one("animationend webkitAnimationEnd",function(event){

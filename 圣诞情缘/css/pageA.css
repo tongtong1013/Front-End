@@ -3,7 +3,7 @@
 	height: 100%;
 	background-image: url(../img/a/page-a-bg.png);
 	position: absolute;
-	z-index: 5;
+	z-index: 50;
 }
 
 .chs-boy{

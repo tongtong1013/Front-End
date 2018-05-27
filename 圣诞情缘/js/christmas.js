@@ -12,16 +12,8 @@ var Christmas = function(){
 	
 	var observer = new Observer();
 	
-
-	
-	observer.subscribe("pageB",function(){
-		new pageB(function(){
-			observer.publish("completeB");
-		});
-	});
-	
-	observer.subscribe("pageC",function(){
-		new pageC();
+	new pageA(function(){
+		observer.publish("completeA");
 	});
 	
 	observer.subscribe("completeA",function(){
@@ -30,18 +22,29 @@ var Christmas = function(){
 		});
 	});
 	
+	observer.subscribe("pageB",function(){
+		new pageB(function(){
+			observer.publish("completeB");
+		});
+	});
+	
 	observer.subscribe("completeB",function(){
 		changePage($pageC,"effect-in",function(){
 			observer.publish("pageC");
 		});
 	});
-//	new pageA(function(){
-//		observer.publish("completeA");
-//	});
-	//new pageA($pageA);
-	new pageB($pageB);
-//	new pageC($pageC);
+	
+	observer.subscribe("pageC",function(){
+		new pageC();
+	});	
+	
+	var audio1 = HTML5Audio('./music/scene.mp3');
+	audio1.end(function(){
+		//alert("音乐结束");
+		HTML5Audio('./music/circulation.mp3', true);
+	});
 }
+
 function HTML5Audio(url,loop){
 	var audio = new Audio(url);
 	audio.autoplay = true;
@@ -55,6 +58,7 @@ function HTML5Audio(url,loop){
 		}
 	}
 }
+
 $(function(){
         Christmas();
 	

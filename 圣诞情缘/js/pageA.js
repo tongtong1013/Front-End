@@ -1,13 +1,15 @@
-//function pageA(callback){
-//	//alert("页面A");
-//	setTimeout(function() {
-//
-//		callback()
-//
-//	}, 2000)
-//}
+function pageA(callback){
+//	alert("页面A");
+	var $pageA = $(".page-a");
+	new pageAStart($pageA);
+	setTimeout(function() {
 
-function pageA(element) {
+		callback();
+
+	}, 22000);
+}
+
+function pageAStart(element) {
 	this.$root = element;
 	this.$boy = element.find(".chs-boy");
 	this.$window = element.find(".window");
@@ -15,7 +17,8 @@ function pageA(element) {
 	this.$rightWin = this.$window.find(".window-right");
 	this.run();
 }
-pageA.prototype.openWindow = function(callback) {
+
+pageAStart.prototype.openWindow = function(callback) {
 	var count = 1;
 	var complete = function() {
 		++count;
@@ -32,7 +35,7 @@ pageA.prototype.openWindow = function(callback) {
 	bind(this.$leftWin.addClass("window-transition").addClass("hover"));
 	bind(this.$rightWin.addClass("window-transition").addClass("hover"));
 }
-pageA.prototype.next = function(options) {
+pageAStart.prototype.next = function(options) {
 	var dfd = $.Deferred();
 	//jquery.transit.js未引用会导致transition无法使用
 	this.$boy.transition(
@@ -46,11 +49,11 @@ pageA.prototype.next = function(options) {
 	return dfd;
 }
 
-pageA.prototype.stopWalk = function() {
+pageAStart.prototype.stopWalk = function() {
 	this.$boy.removeClass("chs-boy-deer");
 }
 
-pageA.prototype.run = function(callback) {
+pageAStart.prototype.run = function(callback) {
 	var that = this;
 	var next = function() {
 		//pageA方法劫持了pageA.next方法，并立即执行劫持的方法
@@ -89,7 +92,7 @@ pageA.prototype.run = function(callback) {
 		})
 		.then(function() {
 			that.openWindow(function() {
-				alert("窗户已打开");
+//				alert("窗户已打开");
 			});
 		})
 }
